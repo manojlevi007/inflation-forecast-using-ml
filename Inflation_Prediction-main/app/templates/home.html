@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Inflation Prediction</title>
+        <link rel="shortcut icon" type="image/png" href="../images/icon.png" >
+        <style>
+            .logo{
+                z-index: -1;
+            }
+            .head1{
+                z-index: 1;
+            }
+            .logo1{
+                z-index: 1;
+            }
+        </style>
+    </head>
+
+    <body>
+    <h1 style="text-align: center;background-color: red; color: white; font-size: 50px; top: 10px" class="head1">Inflation Prediction</h1>
+    <h2 style="text-align: center; font-size: x-large; color: red">Fall 2024 MAIS Project</h2>
+    <a href="https://www.mcgill.ca/">
+{#        <img src="../images/mcgill_logo2.jpg" class="logo" style="position:absolute; top: 60px; right: 80px; max-width: 20%; height: auto; "/>#}
+    </a>
+    <a href="https://www.cs.mcgill.ca/">
+{#        <img src="../images/mcgill_logo.png.png" class="logo1" style="position:absolute; bottom: 10px; left: 10px; max-width: 3%; height: auto; ">#}
+    </a>
+    <form method="post">
+        <label for="fname", style="position: absolute; left: 750px; top: 190px">Choose the model</label>
+
+        <label for="fname" style="position: absolute; left: 520px; top: 210px;">Months to look forward:</label><br>
+        <input type="number" name="month" style="position: absolute; left: 520px; top: 230px;" placeholder="Enter the month" checked="checked" /> <br>
+
+
+        <label for="time_invariant" style="position: absolute; left: 750px; top: 210px;">Time Invariant Forecast</label><br>
+        <input type="radio" id="model1" name="model" value=1 style="position: absolute; left: 725px; top: 210px;"  checked="checked" />
+
+        <label for="time_variant" style="position: absolute; left: 750px; top: 230px;">Time Variant Forecast</label><br>
+        <input type="radio" id="model2" name="model" value=2 style="position: absolute; left: 725px; top: 230px;" />
+
+        <label for="multivariate" style="position: absolute; left: 750px; top: 250px;">Multivariable Forecast</label>
+        <input type="radio" id="model3" name="model" value=3 style="position: absolute; left: 725px; top: 250px;" />
+
+        <input type="submit" value="Submit" style="position: absolute; left: 670px; top: 280px">
+    </form>
+
+    <style>
+        .ima{
+                width: 40%;
+                height: auto;
+                position: absolute; left: 410px; top: 310px;
+        }
+    </style>
+
+    {% if valid== 3 %}
+        {% if model == 1 %}
+            <img class= 'ima' src="../images/prediction1.png" >
+        {% elif model== 2 %}
+            <img class= 'ima' src="../images/prediction2.png">
+        {% else %}
+             <img class='ima' src="../images/prediction3.png" >
+        {% endif %}
+    {% elif valid == 1 %}
+        <p style= "position: absolute; left: 170px; top: 310px; background-color: red; font-size: x-large; color: white">Our inflation forecast does not predict values beyond a year. Please select a different number of periods to predict</p>
+    {% elif valid == 2 %}
+        <p style= "position: absolute; left: 523px; top: 310px; background-color: red; font-size: x-large; color: white">Please input a valid number of periods</p>
+    {% endif %}
+
+    </body>
+</html>
